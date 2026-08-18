@@ -2,7 +2,7 @@
 
 Automated Software Composition Analysis (SCA) scanning for WildFly application server distributions using OWASP Dependency Check. The scanner identifies known security vulnerabilities (CVEs) in WildFly's dependencies by analyzing packaged libraries against the National Vulnerability Database (NVD) and Sonatype OSS Index.
 
-Scans run daily via GitHub Actions across multiple WildFly versions and distribution variants (standard, preview, EE10, nightly builds).
+Scans run daily via GitHub Actions across multiple WildFly versions and distribution variants (standard, preview, EE10, nightly builds). See [PERMUTATIONS.md](PERMUTATIONS.md) for the current scan matrix.
 
 ## GitHub Actions Workflows
 
@@ -43,7 +43,7 @@ Four workflows provision different WildFly distributions and cache them for scan
 
 **WildFly EE10 Maintenance** (`wildfly-ee10-instances.yaml`) provisions WildFly EE10 distributions (Jakarta EE 10 compatibility). Versions are defined in its `matrix.version` array. Cached with key `wildfly-{VERSION}-EE10`. EE10 provisioning requires a `provisioning.xml` file with two feature packs (`wildfly-ee-10-feature-pack` first, then `wildfly-galleon-pack`) because Galleon CLI does not support multiple feature packs in a single install command.
 
-**WildFly Nightly Maintenance** (`wildfly-nightly.yaml`) downloads and provisions nightly builds from WildFly CI (`ci.wildfly.org`). The matrix includes `upstream` (main branch) and `maintenance` (maintenance branch) entries. The `UPSTREAM_CI` and `MAINTENANCE_CI` repository variables map these to CI job names. Setting `MAINTENANCE_CI` to `'OFF'` disables maintenance branch scanning. Each nightly run provisions standard, EE10 (upstream only), and preview distributions, cached with unique keys incorporating the run ID (e.g. `wildfly-standard-{VERSION}-{RUN_ID}-{ATTEMPT}`).
+**WildFly Nightly Maintenance** (`wildfly-nightly.yaml`) downloads and provisions nightly builds from WildFly CI (`ci.wildfly.org`). The matrix includes `upstream` (main branch) and `maintenance` (maintenance branch) entries. The `UPSTREAM_CI` and `MAINTENANCE_CI` repository variables map these to CI job names. Setting `MAINTENANCE_CI` to `'OFF'` disables maintenance branch scanning. Each nightly run provisions standard and preview distributions, plus EE10 for the maintenance branch, cached with unique keys incorporating the run ID (e.g. `wildfly-standard-{VERSION}-{RUN_ID}-{ATTEMPT}`).
 
 ### Security Scanning
 
@@ -103,7 +103,7 @@ The naming conventions for scan matrix entries are:
 - Released preview: `VERSION-Preview`
 - Released EE10: `VERSION-EE10`
 - Nightly standard: `standard-upstream`, `standard-maintenance`
-- Nightly EE10: `ee10-upstream`
+- Nightly EE10: `ee10-maintenance`
 - Nightly preview: `preview-upstream`, `preview-maintenance`
 
 ## Suppressions
