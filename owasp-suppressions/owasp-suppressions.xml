@@ -279,6 +279,21 @@
      <packageUrl regex="true">^pkg:maven/org\.jboss\.ironjacamar/ironjacamar-validator@.*$</packageUrl>
      <cpe>cpe:/a:validator:validator</cpe>
   </suppress>
+  <suppress>
+     <notes><![CDATA[
+     file name: concurro-3.1.0.jar
+
+     [Issue #83] concurro is a Jakarta EE Concurrency Utilities implementation
+     (ManagedExecutorService, ManagedThreadFactory, etc.). It is not part of
+     Payara Server and should not be matched to the Payara CPE. The scanner
+     matches on the org.glassfish namespace but concurro is a standalone
+     concurrency library with no relationship to the Payara server product.
+
+     https://github.com/wildfly-security/wildfly-sca-scanner/issues/83
+     ]]></notes>
+     <packageUrl regex="true">^pkg:maven/org\.glassfish\.concurro/concurro@.*$</packageUrl>
+     <cpe>cpe:/a:payara:payara</cpe>
+  </suppress>
 
    <!-- CVE Expressions -->
 
