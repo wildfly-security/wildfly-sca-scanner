@@ -16,7 +16,7 @@ jobs:
     strategy:
       max-parallel: 1
       matrix:
-        version: [37.0.1.Final, 38.0.1.Final, 39.0.1.Final, 40.0.1.Final, 40.0.1.Final-Preview, 40.0.1.Final-EE10, standard-upstream, ee10-upstream, preview-upstream, standard-maintenance, preview-maintenance]
+        version: [38.0.1.Final, 39.0.1.Final, 40.0.1.Final, 40.0.1.Final-EE10, 41.0.0.Final, 41.0.0.Final-EE10, 41.0.0.Final-Preview, standard-upstream, preview-upstream, standard-maintenance, ee10-maintenance, preview-maintenance]
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
