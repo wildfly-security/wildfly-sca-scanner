@@ -697,9 +697,10 @@
       <notes><![CDATA[
       file name: opentelemetry-api-1.48.0.jar, opentelemetry-api-incubator-1.48.0-alpha.jar,
     opentelemetry-context-1.48.0.jar, opentelemetry-exporter-common-1.48.0.jar,
-    opentelemetry-sdk-1.48.0.jar
+    opentelemetry-exporter-logging-1.48.0.jar, opentelemetry-sdk-1.48.0.jar,
+    opentelemetry-sdk-logs-1.48.0.jar
 
-    [Issue #89] CVE-2026-54285 affects baggage parsing in the JavaScript npm package
+    [Issue #89] [Issue #102] CVE-2026-54285 affects baggage parsing in the JavaScript npm package
     @opentelemetry/core, not the separate OpenTelemetry Java implementation shipped
     by WildFly. The scanner incorrectly maps these Java Maven artifacts to a Node.js
     OpenTelemetry CPE.
@@ -711,8 +712,9 @@
 
     https://github.com/open-telemetry/opentelemetry-js/security/advisories/GHSA-8988-4f7v-96qf
     https://github.com/wildfly-security/wildfly-sca-scanner/issues/89
+    https://github.com/wildfly-security/wildfly-sca-scanner/issues/102
       ]]></notes>
-      <packageUrl regex="true">^pkg:maven/io\.opentelemetry/opentelemetry-(api(-incubator)?|context|exporter-common|sdk)@.*$</packageUrl>
+      <packageUrl regex="true">^pkg:maven/io\.opentelemetry/opentelemetry-(api(-incubator)?|context|exporter-(common|logging)|sdk(-logs)?)@.*$</packageUrl>
       <cve>CVE-2026-54285</cve>
    </suppress>
 </suppressions>

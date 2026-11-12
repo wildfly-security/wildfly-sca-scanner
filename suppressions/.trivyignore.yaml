@@ -276,5 +276,5 @@ vulnerabilities:
   expired_at: 2027-07-14
   statement: 'file name: kafka-clients-4.2.1.jar, kafka-clients-4.2.2.jar | https://kafka.apache.org/community/cve-list/#cve-2026-41115'
 - id: CVE-2026-54285
-  statement: 'Triaged globally (original pattern: ^pkg:maven/io\.opentelemetry/opentelemetry-(api(-incubator)?|context|exporter-common|sdk)@.*$)'
+  statement: 'Triaged globally (original pattern: ^pkg:maven/io\.opentelemetry/opentelemetry-(api(-incubator)?|context|exporter-(common|logging)|sdk(-logs)?)@.*$)'
   expired_at: 2027-11-10
